@@ -35,9 +35,13 @@ storeitems.initTestItems(120);
 
 app.get('/hello', (req, res, next) => {
   res.status(200)
-    .header('Access-Control-Allow-Origin', 'http://localhost:3000/')
+    .set({
+      'Access-Control-Allow-Origin': 'http://localhost:3000/'
+    })
     .send('Hi there!');
-})
+
+  next();
+});
 
 
 const PORT = process.env.PORT || 5000;
