@@ -1,0 +1,37 @@
+potential data types
+
+// I changed my mind on what to include. Mostly, I am thinking about
+what can be included in this one app, like a cart and order history page.
+
+item = {
+  name: ____,
+  cost: ____,
+  description: ____,
+  weight: _____
+
+}
+
+// here we get into info that should be encrypted
+// could use help planning this
+order: {
+  items: [],
+  name: _____,
+  address: _____,
+  email: ______,
+  phone: ______,
+  payment: ______,
+  delivery: {
+    eta: ______,
+    method: ______,
+    tracking: ______,
+    contact: _____
+  }
+}
+
+cart: {
+  items: []
+}
+
+orderHistory: {
+  orders: []
+}
