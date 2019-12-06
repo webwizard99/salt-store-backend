@@ -35,9 +35,7 @@ storeitems.initTestItems(120);
 
 app.get('/hello', (req, res, next) => {
   res.status(200)
-    .set({
-      'Access-Control-Allow-Origin': 'http://localhost:3000/'
-    })
+    .append('Access-Control-Allow-Origin', 'http://localhost:3000/')
     .send('Hi there!');
 
   next();
