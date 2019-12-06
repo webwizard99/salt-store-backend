@@ -20,12 +20,26 @@ app.use(cors({
   }
 }));
 
+var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000/');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next();
+}
+
+app.use(allowCrossDomain);
+
 const storeitems = require('./utilities/storeitems');
 storeitems.initTestItems(120);
 
 app.get('/hello', (req, res, next) => {
-  res.status(200);
-  res.send('Hi there!');
+  res.status(200)
+    .set({
+      'content-type' : 'text/plain',
+
+    })
+    .send('Hi there!');
 })
 
 
