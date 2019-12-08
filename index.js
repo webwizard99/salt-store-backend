@@ -6,7 +6,7 @@ const allowedOrigins = require('./origins/origins');
 const app = express();
 require('./routes/storeRoutes')(app);
 
-app.use(cors);
+app.use(cors());
 
 // ({
 //   origin: function(origin, callback){
