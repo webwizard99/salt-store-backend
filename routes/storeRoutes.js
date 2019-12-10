@@ -4,7 +4,9 @@ module.exports = (app) => {
     const count = req.params.count;
 
     console.log(page, count);
+
+    const response = `${page}, ${count}`;
     
-    res.status(200).send('storeitems');
+    res.status(200).send(response);
   });
 }
