@@ -4,9 +4,14 @@ const cors = require('cors');
 const allowedOrigins = require('./origins/origins');
 
 const app = express();
-require('./routes/storeRoutes')(app);
+
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
+
+require('./routes/storeRoutes')(app);
+
+
 
 // ({
 //   origin: function(origin, callback){
@@ -37,13 +42,11 @@ storeitems.initTestItems(120);
 
 app.get('/hello', (req, res, next) => {
   res.status(200)
-    .append('Access-Control-Allow-Origin', 'http://localhost:3000/')
+    .append('Access-Control-Allow-Origin', '*')
     .send('Hi there!');
 
   next();
 });
 
-
-const PORT = process.env.PORT || 5000;
 
 app.listen(PORT);
