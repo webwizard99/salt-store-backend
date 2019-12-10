@@ -7,7 +7,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// app.use(cors());
 
 app.all('/', (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -48,7 +48,6 @@ storeitems.initTestItems(120);
 
 app.get('/hello', (req, res, next) => {
   res.status(200)
-    .append('Access-Control-Allow-Origin', '*')
     .send('Hi there!');
 
   next();
