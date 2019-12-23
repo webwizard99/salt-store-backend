@@ -22,7 +22,7 @@ router.get('/db', async (req, res) => {
   }
 })
 
-app.use(router);
+app.use('/db', router);
 
 const app = express();
 
