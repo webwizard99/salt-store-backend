@@ -14,7 +14,7 @@ router.get('/db', async (req, res) => {
     const client = await client.connect();
     const result = await client.query('SELECT * FROM test_table');
     const results = { 'results': (result) ? result.rows : null};
-    res.render('pages/db', results);
+    res.render('/db', results);
     client.release();
   } catch (err) {
     console.error(err);
@@ -22,7 +22,7 @@ router.get('/db', async (req, res) => {
   }
 })
 
-app.use('/db', router);
+app.use('/', router);
 
 const app = express();
 
