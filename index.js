@@ -7,15 +7,20 @@ const client = new Client({
   ssl: true
 });
 
-client.connect();
+const router = express.Router();
 
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
+router.get('/db', async (req, res) => {
+  try {
+    const client = await client.connect();
+    const result = await client.query('SELECT * FROM test_table');
+    const results = { 'results': (result) ? result.rows : null};
+    res.render('pages/db', results);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
   }
-  client.end();
-});
+})
 
 const app = express();
 
