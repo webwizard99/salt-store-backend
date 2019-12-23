@@ -22,6 +22,8 @@ router.get('/db', async (req, res) => {
   }
 })
 
+app.use(router);
+
 const app = express();
 
 const PORT = process.env.PORT || 5000;
