@@ -21,7 +21,7 @@ router.get('/db', async (req, res) => {
     // Not sure what I'm doing wrong.
     const result = await client.query('SELECT * FROM public.test_table');
     const results = { 'results': (result) ? result.rows : null};
-    res.render('/db', results);
+    res.send(JSON.stringify(results));
     client.release();
   } catch (err) {
     console.error(err);
