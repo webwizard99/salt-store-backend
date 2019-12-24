@@ -2,7 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./config/database');
 
+// import route to get test database
 const testRoute = require('./routes/testRoute');
+
+// default test data creation module
+const storeitems = require('./utilities/storeitems');
 
 const app = express();
 
@@ -17,10 +21,11 @@ db.authenticate()
 
 app.use('/db', testRoute);
 
+// Routes for getting store items
 require('./routes/storeRoutes')(app);
 
 
-const storeitems = require('./utilities/storeitems');
+
 storeitems.initTestItems(120);
 
 app.get('/hello', (req, res, next) => {
