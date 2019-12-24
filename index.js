@@ -12,17 +12,17 @@ const router = express.Router();
 router.get('/db', async (req, res) => {
   try {
     
-    const dbClient = await client.connect();
+    await client.connect();
 
     // this is where I'm getting errors
     // right now.
     // It says 'Cannot read property 'query' of undefined'
     // documentation says to use pg module...
     // Not sure what I'm doing wrong.
-    const result = await dbClient.query('SELECT * FROM public.test_table');
+    const result = await client.query('SELECT * FROM public.test_table');
     const results = { 'results': (result) ? result.rows : null};
     res.render('/db', results);
-    dbClient.release();
+    client.release();
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
