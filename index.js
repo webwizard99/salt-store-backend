@@ -2,22 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./config/database');
 
-// const router = express.Router();
-
-// router.get('/db', async (req, res) => {
-//   try {
-    
-//     await client.connect();
-
-//     const result = await client.query('SELECT * FROM public.test_table');
-//     const results = { 'results': (result) ? result.rows : null};
-//     res.send(JSON.stringify(results));
-//     client.release();
-//   } catch (err) {
-//     console.error(err);
-//     res.send("Error " + err);
-//   }
-// })
+const testRoute = require('./routes/testRoute');
 
 const app = express();
 
@@ -30,7 +15,7 @@ db.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err));
 
-// app.use('/', router);
+app.use('/db', testRoute);
 
 require('./routes/storeRoutes')(app);
 
