@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/db', async (req, res) => {
   try {
     const dbClient = await client.connect();
-    const result = await dbClient.query('SELECT * FROM test_table');
+    const result = await dbClient.query('SELECT * FROM public.test_table');
     const results = { 'results': (result) ? result.rows : null};
     res.render('/db', results);
     client.release();
