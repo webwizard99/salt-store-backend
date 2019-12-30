@@ -17,7 +17,24 @@ productRouter.get('/', (req, res) => {
 
 productRouter.get('/loadTestProducts', (req, res) => {
   const allItems = storeItems.getItems(1, 40);
-  res.status(200).send(JSON.stringify(allItems));
+  
+  allItems.forEach(item => {
+    Product.create({
+      name: item.name,
+      cost: item.price,
+      description: item.description,
+      img_url: item.img,
+      alt_text: item.alt,
+      category_id: item.categoryId,
+      weight: item.weight,
+      height: item.height,
+      width: item.width,
+      depth: item.depth
+    })
+      .catch(err => console.log(err));
+  });
+
+  res.status(200).redirect('/');
 });
 
 module.exports = productRouter;
