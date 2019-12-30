@@ -11,6 +11,12 @@ const Product = db.define('product', {
   description: {
     type: Sequelize.STRING
   },
+  img_url: {
+    type: Sequelize.STRING
+  },
+  alt_text: {
+    type: Sequelize.STRING
+  },
   category_id: {
     type: Sequelize.INTEGER
   },

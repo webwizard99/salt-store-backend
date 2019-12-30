@@ -6,7 +6,9 @@ what can be included in this one app, like a cart and order history page.
 product = {
   id: serial,
   name: string,
-  cost: number,
+  cost: real,
+  img_url: string,
+  alt_text: string,
   description: string,
   category_id: integer,
   weight: number, in ounces?,
