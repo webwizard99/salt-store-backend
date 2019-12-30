@@ -4,16 +4,57 @@ potential data types
 what can be included in this one app, like a cart and order history page.
 
 item = {
-  name: ____,
-  cost: ____,
-  description: ____,
-  weight: _____
+  id: serial,
+  name: string,
+  cost: number,
+  description: string,
+  categoryId: integer,
+  weight: number, in ounces?
+  dimensions: {
+    height: number in inches,
+    width: number in inches,
+    depth: number in inches
+  }
+}
 
+category = {
+  id: serial,
+  name: string,
+  description
+}
+
+user = {
+  id: serial,
+  name: string,
+  addressess: [ address_id ...],
+  payment_methods: [ payment_id ... ]
+}
+
+address = {
+  id : serial,
+  user_id: serial,
+  street: string,
+  city: string,
+  state: string,
+  country: string,
+  validated: boolean
+}
+
+payment = {
+  id: serial,
+  user_id: integer,
+  type: string,
+  card_number: string,
+  expiration: date,
+  billing_address: address_id,
+  verified: boolean
 }
 
 // here we get into info that should be encrypted
 // could use help planning this
 order: {
+  id: serial,
+  userId: integer,
   items: [],
   name: _____,
   address: _____,
@@ -29,6 +70,8 @@ order: {
 }
 
 cart: {
+  id: serial,
+  userId: integer,
   items: []
 }
 
