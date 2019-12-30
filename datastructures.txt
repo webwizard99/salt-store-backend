@@ -9,12 +9,11 @@ product = {
   cost: number,
   description: string,
   category_id: integer,
-  weight: number, in ounces?
-  dimensions: {
-    height: number in inches,
-    width: number in inches,
-    depth: number in inches
-  }
+  weight: number, in ounces?,
+  height: number in inches,
+  width: number in inches,
+  depth: number in inches
+
 }
 
 category = {
