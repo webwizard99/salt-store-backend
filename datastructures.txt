@@ -3,7 +3,7 @@ potential data types
 // I changed my mind on what to include. Mostly, I am thinking about
 what can be included in this one app, like a cart and order history page.
 
-item = {
+product = {
   id: serial,
   name: string,
   cost: number,
@@ -57,21 +57,21 @@ payment = {
 order: {
   id: serial,
   user_id: integer,
-  items: [ item_id ... ],
+  products: [ product_id ... ],
   address: address_id,
   payment: payment_id,
   delivery: {
-    eta: ______,
-    method: ______,
-    tracking: ______,
-    contact: _____
+    eta: date,
+    method: string,
+    tracking: string,
+    contact: string
   }
 }
 
 cart: {
   id: serial,
   user_id: integer,
-  items: [ item_id ... ]
+  products: [ product_id ... ]
 }
 
 orderHistory: {
