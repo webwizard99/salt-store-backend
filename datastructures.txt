@@ -8,7 +8,7 @@ item = {
   name: string,
   cost: number,
   description: string,
-  categoryId: integer,
+  category_id: integer,
   weight: number, in ounces?
   dimensions: {
     height: number in inches,
@@ -26,6 +26,8 @@ category = {
 user = {
   id: serial,
   name: string,
+  email: string,
+  phone: string,
   addressess: [ address_id ...],
   payment_methods: [ payment_id ... ]
 }
@@ -54,13 +56,10 @@ payment = {
 // could use help planning this
 order: {
   id: serial,
-  userId: integer,
-  items: [],
-  name: _____,
-  address: _____,
-  email: ______,
-  phone: ______,
-  payment: ______,
+  user_id: integer,
+  items: [ item_id ... ],
+  address: address_id,
+  payment: payment_id,
   delivery: {
     eta: ______,
     method: ______,
@@ -71,10 +70,10 @@ order: {
 
 cart: {
   id: serial,
-  userId: integer,
-  items: []
+  user_id: integer,
+  items: [ item_id ... ]
 }
 
 orderHistory: {
-  orders: []
+  orders: [ order_id ... ]
 }
