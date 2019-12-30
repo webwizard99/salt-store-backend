@@ -43,7 +43,7 @@ module.exports = (function(){
           img: './joanna-kosinska-Prfs32wh-o4-unsplash.jpg',
           alt: 'A spoon-full of salt',
           name: `${flavors[flavor]} Salt`,
-          price: `$${cost.toFixed(2)}`,
+          price: cost.toFixed(2),
           description: `${flavors[flavor]} Salt for rejuvenation and relaxation.`,
           categoryId: 1,
           weight: 3,
