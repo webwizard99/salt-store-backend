@@ -17,6 +17,7 @@ productRouter.get('/', (req, res) => {
 
 productRouter.param('productId', (req, res, next, id) => {
   req.id = id;
+  next();
 })
 
 // get product
