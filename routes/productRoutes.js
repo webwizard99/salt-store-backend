@@ -15,26 +15,16 @@ productRouter.get('/', (req, res) => {
     .catch(err => console.log(err));
 });
 
-productRouter.get('/loadTestProducts', (req, res) => {
-  const allItems = storeItems.getItems(1, 40);
-  
-  allItems.forEach(item => {
-    Product.create({
-      name: item.name,
-      cost: item.price,
-      description: item.description,
-      img_url: item.img,
-      alt_text: item.alt,
-      category_id: item.categoryId,
-      weight: item.weight,
-      height: item.height,
-      width: item.width,
-      depth: item.depth
-    })
-      .catch(err => console.log(err));
-  });
+productRouter.param('productId', (req, res, next, id) => {
+  req.id = id;
+})
 
-  res.status(200).redirect('/');
-});
+// get product
+productRouter.get('/:productId', (req, res) => {
+  const id = req.id;
+  Product.findAll({ where: { id: id }})
+    .then(product => res.status(200).send(product))
+    .catch(err => console.log(err));
+})
 
 module.exports = productRouter;

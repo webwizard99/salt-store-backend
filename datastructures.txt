@@ -15,17 +15,17 @@ product = {
   height: number in inches,
   width: number in inches,
   depth: number in inches
-
 }
 
 category = {
   id: serial,
   name: string,
-  description
+  description: string
 }
 
 user = {
   id: serial,
+  password: encrypted,
   name: string,
   email: string,
   phone: string,
