@@ -33,6 +33,9 @@ productRouter.get('/:productId', (req, res) => {
 });
 
 productRouter.post('/', (req, res) => {
+  console.log('reached product post route');
+  console.log(req.body);
+  
   let { key, 
     name, 
     cost, 
