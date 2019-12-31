@@ -21,7 +21,11 @@ productRouter.param('productId', (req, res, next, id) => {
 
 // get product
 productRouter.get('/:productId', (req, res) => {
-  const id = req.id;
+  let id = req.id;
+
+  if (typeof id !== 'number') {
+    id = Number.parseInt(id);
+  }
   Product.findAll({ where: { id: id }})
     .then(product => res.status(200).send(product))
     .catch(err => console.log(err));
