@@ -12,10 +12,10 @@ const productRoutes = require('./routes/productRoutes');
 const frontendRoutes = require('./routes/frontendTestRoutes');
 
 const app = express();
+app.use(express.static('public'));
 
 const PORT = process.env.PORT || 5000;
 
-app.use(express.static('public'));
 app.use(cors());
 app.use(bodyParser({ extended: true }));
 
