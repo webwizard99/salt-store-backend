@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./config/database');
 const bodyParser= require('body-parser');
+const path = require('path');
 
 // import route to get test database
 const testRoute = require('./routes/testRoute');
@@ -12,7 +13,7 @@ const productRoutes = require('./routes/productRoutes');
 const frontendRoutes = require('./routes/frontendTestRoutes');
 
 const app = express();
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 5000;
 
