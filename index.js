@@ -8,9 +8,8 @@ const testRoute = require('./routes/testRoute');
 
 // import products router
 const productRoutes = require('./routes/productRoutes');
-
-// default test data creation module
-const storeitems = require('./utilities/storeitems');
+// import frontend router
+const frontendRoutes = require('./routes/frontendTestRoutes');
 
 const app = express();
 
@@ -29,12 +28,7 @@ app.use('/db', testRoute);
 // mount products router
 app.use('/products', productRoutes);
 
-// Routes for getting store items
-require('./routes/storeRoutes')(app);
-
-
-
-storeitems.initTestItems(120);
+app.use('/frontend', frontendRoutes);
 
 app.get('/hello', (req, res, next) => {
   res.status(200)
