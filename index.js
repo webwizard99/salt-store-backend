@@ -13,7 +13,7 @@ const productRoutes = require('./routes/productRoutes');
 const frontendRoutes = require('./routes/frontendTestRoutes');
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -24,6 +24,8 @@ app.use(bodyParser({ extended: true }));
 db.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err));
+
+app.use(express.static('public'));
 
 app.use('/db', testRoute);
 
