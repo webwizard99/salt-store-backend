@@ -15,7 +15,7 @@ frontendRouter.use((req, res, next) => {
 });
 
 frontendRouter.get('/', (req, res) => {
-  res.status(200).sendFile('./index.html', { root: __dirname}); // path.join(__dirname, '../public', 'index.html'));
+  res.status(200).sendFile(path.join(__dirname, '../public', 'index.html'), { root: __dirname});
 });
 
 module.exports = frontendRouter;
