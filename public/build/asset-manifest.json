@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.ab2e0d9e.chunk.css",
-    "main.js": "/static/js/main.43b127d3.chunk.js",
-    "main.js.map": "/static/js/main.43b127d3.chunk.js.map",
+    "main.js": "/static/js/main.191ce5e1.chunk.js",
+    "main.js.map": "/static/js/main.191ce5e1.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a7bca83f.js",
     "runtime-main.js.map": "/static/js/runtime-main.a7bca83f.js.map",
     "static/js/2.32987a14.chunk.js": "/static/js/2.32987a14.chunk.js",
     "static/js/2.32987a14.chunk.js.map": "/static/js/2.32987a14.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2f2a381f947905defd05c20d6d7e8971.js": "/precache-manifest.2f2a381f947905defd05c20d6d7e8971.js",
+    "precache-manifest.e780f50d61fb54dd4f2bfa6ed42dc99d.js": "/precache-manifest.e780f50d61fb54dd4f2bfa6ed42dc99d.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.ab2e0d9e.chunk.css.map": "/static/css/main.ab2e0d9e.chunk.css.map",
     "static/media/HomeStory.css": "/static/media/aromatherapy-ayurveda-b-3188.338648e2.jpg",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.a7bca83f.js",
     "static/js/2.32987a14.chunk.js",
     "static/css/main.ab2e0d9e.chunk.css",
-    "static/js/main.43b127d3.chunk.js"
+    "static/js/main.191ce5e1.chunk.js"
   ]
 }
