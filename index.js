@@ -6,16 +6,17 @@ const session = require('express-session');
 const Passport = require('passport');
 const path = require('path');
 
-// import route to get test database
+// import route to get test database (delete)
 const testRoute = require('./routes/testRoute');
-
 // import products router
 const productRoutes = require('./routes/productRoutes');
 // import frontend router
 const frontendRoutes = require('./routes/frontendTestRoutes');
 
+// initialize express app
 const app = express();
-
+// require in passport strategies
+require('./config/passport');
 
 const PORT = process.env.PORT || 5000;
 
