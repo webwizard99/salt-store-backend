@@ -11,7 +11,7 @@
     <div id="root"></div>
     
     <script>{{unpackingScript}}</script>
-    <script>window.prototype.CSRF = (function(){
+    <script>const CSRF = (function(){
         const csrf = (<input type="hidden" name="_csrf" value="{{ csrfToken }}">);
         return {
           getCSRF: function() {
