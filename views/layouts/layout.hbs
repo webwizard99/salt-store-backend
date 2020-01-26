@@ -10,9 +10,11 @@
   <body>
     <div id="root"></div>
     
-    <script>{{unpackingScript}}</script>
-    <script>const CSRF = (function(){
-        const csrf = (<input type="hidden" name="_csrf" value="{{ csrfToken }}">);
+    <script>{{ unpackingScript }}</script>
+    <script type="module">
+      const CSRF = (function(){
+        const token = {{ csrfToken }};
+        const csrf = (<input type="hidden" name="_csrf" value={ token }>);
         return {
           getCSRF: function() {
             return csrf;
