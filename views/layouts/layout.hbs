@@ -12,7 +12,7 @@
     
     <script>{{ unpackingScript }}</script>
     <script type="text/javascript">
-      const CSRF = (function(){
+      /*const CSRF = (function(){
         const token = {{ csrfToken }};
         const csrf = (<input type="hidden" name="_csrf" value={ token }>);
         return {
@@ -20,7 +20,14 @@
             return csrf;
           }
         }
-      }())
+      }()) */
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+      setCookie('csrfToken', {{ csrfToken }}, (1 / 12));
     </script>
   </body>
 </html>
