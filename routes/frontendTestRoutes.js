@@ -23,11 +23,13 @@ frontendRouter.get('/', (req, res) => {
   // res.status(200).sendFile(path.join(__dirname, '../public', 'index.html'));
   const chunk1 = reactScripts.path + reactScripts.chunk1;
   const chunk2 = reactScripts.path + reactScripts.chunk2;
+  const css = reactScripts.cssPath + reactScripts.css;
   
   res.render('/', 
   { script1: chunk1,
     script2: chunk2, 
-    unpackingScript: reactScripts.unpackingScript, 
+    unpackingScript: reactScripts.unpackingScript,
+    css: css,
     csrfToken: req.csrfToken() 
   });
 });
