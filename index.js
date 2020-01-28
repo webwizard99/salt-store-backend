@@ -34,13 +34,6 @@ app.set('view engine', '.hbs');
 // set up middlewares
 app.use(cors());
 app.use(bodyParser({ extended: true }));
-<<<<<<< HEAD
-app.use(cookieParser());
-app.use(csurf({
-  cookie: true
-}));
-=======
->>>>>>> parent of a3f20d8... Add partial implementation of a cookie-parser solution and a custom solution to set a cookie in rendering of react page.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: 'sheM0zz3l3pf3', resave: false, saveUninitialized: false }));
