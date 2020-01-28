@@ -30,22 +30,13 @@ db.authenticate()
 
 // view engine setup
 app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
-app.set('views', path.join(__dirname, 'views/layouts'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
 
 // set up middlewares
 app.use(cors());
 app.use(bodyParser({ extended: true }));
-app.use(cookieParser());
-app.use(csurf({
-  cookie: {
-    key: '_csrf-salt-store',
-    path: '/frontend',
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 3600
-  }
-}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: 'sheM0zz3l3pf3', resave: false, saveUninitialized: false }));
