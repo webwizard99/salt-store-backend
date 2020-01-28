@@ -12,7 +12,7 @@
     
     <script>{{ unpackingScript }}</script>
     <script type="text/javascript">
-      /*const CSRF = (function(){
+      const CSRF = (function(){
         const token = {{ csrfToken }};
         const csrf = (<input type="hidden" name="_csrf" value={ token }>);
         return {
@@ -20,6 +20,7 @@
             return csrf;
           }
         }
+<<<<<<< HEAD
       }()) */
       /*function setCookie(cname, cvalue, exdays) {
         var d = new Date();
@@ -29,6 +30,9 @@
       }
       setCookie('csrfToken', {{ csrfToken }}, (1 / 12));
       */
+=======
+      }())
+>>>>>>> parent of a3f20d8... Add partial implementation of a cookie-parser solution and a custom solution to set a cookie in rendering of react page.
     </script>
   </body>
 </html>
