@@ -38,13 +38,7 @@ app.use(cors());
 app.use(bodyParser({ extended: true }));
 app.use(cookieParser());
 app.use(csurf({
-  cookie: {
-    key: '_csrf-salt-store',
-    path: '/frontend',
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 3600
-  }
+  cookie: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
