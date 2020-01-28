@@ -30,7 +30,7 @@ db.authenticate()
 
 // view engine setup
 app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/layouts'));
 app.set('view engine', '.hbs');
 
 // set up middlewares
