@@ -25,13 +25,15 @@ frontendRouter.get('/', (req, res) => {
   const chunk2 = reactScripts.path + reactScripts.chunk2;
   const css = reactScripts.cssPath + reactScripts.css;
   
-  res.render('/', 
-  { script1: chunk1,
-    script2: chunk2, 
-    unpackingScript: reactScripts.unpackingScript,
-    css: css,
-    csrfToken: req.csrfToken() 
-  });
+  res.status(200).send('front end');
+
+  // res.render('/', 
+  // { script1: chunk1,
+  //   script2: chunk2, 
+  //   unpackingScript: reactScripts.unpackingScript,
+  //   css: css,
+  //   csrfToken: req.csrfToken() 
+  // });
 });
 
 module.exports = frontendRouter;
