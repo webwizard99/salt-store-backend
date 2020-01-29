@@ -3,11 +3,11 @@ const path = require('path');
 const csrf = require('csurf');
 const reactScripts = require('../config/reactchunks');
 
-const csrfProtection = csrf();
+// const csrfProtection = csrf();
 
 const frontendRouter = express.Router();
 
-frontendRouter.use(csrfProtection);
+// frontendRouter.use(csrfProtection);
 
 frontendRouter.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
