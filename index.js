@@ -39,7 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: 'sheM0zz3l3pf3', resave: false, saveUninitialized: false }));
 app.use(Passport.initialize());
 app.use(Passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use('/db', testRoute);
 
