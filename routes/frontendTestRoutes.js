@@ -20,12 +20,12 @@ frontendRouter.use((req, res, next) => {
 });
 
 frontendRouter.get('/', (req, res) => {
-  // res.status(200).sendFile(path.join(__dirname, '../public', 'index.html'));
+  res.status(200).sendFile(path.join(__dirname, '../public', '/build','index.html'));
   const chunk1 = reactScripts.path + reactScripts.chunk1;
   const chunk2 = reactScripts.path + reactScripts.chunk2;
   const css = reactScripts.cssPath + reactScripts.css;
   
-  res.status(200).send('front end');
+  // res.status(200).send('front end');
 
   // res.render('/', 
   // { script1: chunk1,
