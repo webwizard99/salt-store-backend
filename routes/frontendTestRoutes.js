@@ -1,11 +1,11 @@
 const express = require('express');
 const path = require('path');
 
-// const csrfProtection = csrf();
+const csrfProtection = csrf();
 
 const frontendRouter = express.Router();
 
-// frontendRouter.use(csrfProtection);
+frontendRouter.use(csrfProtection);
 
 frontendRouter.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -25,14 +25,14 @@ frontendRouter.get('/', (req, res) => {
   const css = reactScripts.cssPath + reactScripts.css;
   
   // res.status(200).send('front end');
-  res.render('/', {});
-  // res.render('/', 
-  // { script1: chunk1,
-  //   script2: chunk2, 
-  //   unpackingScript: reactScripts.unpackingScript,
-  //   css: css,
-  //   csrfToken: req.csrfToken() 
-  // });
+  // res.render('/', {});
+  res.render('/', 
+  { script1: chunk1,
+    script2: chunk2, 
+    unpackingScript: reactScripts.unpackingScript,
+    css: css,
+    csrfToken: req.csrfToken() 
+  });
 
 });
 
