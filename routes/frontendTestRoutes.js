@@ -28,8 +28,9 @@ frontendRouter.get('/', (req, res) => {
   
   // res.status(200).send('front end');
   // res.render('/', {});
-  res.render('/', 
-  { script1: chunk1,
+  res.render('', 
+  { layout: 'layout',
+    script1: chunk1,
     script2: chunk2, 
     unpackingScript: reactChunks.unpackingScript,
     css: css,
