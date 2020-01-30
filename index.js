@@ -1,4 +1,5 @@
 const express = require('express');
+const expressHbs = require('express-handlebars');
 const cors = require('cors');
 const db = require('./config/database');
 const bodyParser= require('body-parser');
@@ -27,6 +28,11 @@ app.use(bodyParser({ extended: true }));
 db.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err));
+
+// view engine setup
+app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', '.hbs');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
