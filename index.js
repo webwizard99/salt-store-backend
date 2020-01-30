@@ -29,6 +29,9 @@ db.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err));
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 // view engine setup
 app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
 app.set('views', path.join(__dirname, 'views'));
@@ -39,7 +42,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: 'sheM0zz3l3pf3', resave: false, saveUninitialized: false }));
 app.use(Passport.initialize());
 app.use(Passport.session());
-app.use(express.static('public'));
+
 
 app.use('/db', testRoute);
 
