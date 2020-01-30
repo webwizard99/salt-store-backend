@@ -1,6 +1,7 @@
 const express = require('express');
 const csrf = require('csurf');
 const path = require('path');
+const reactChunks = require('../config/reactchunks');
 
 const csrfProtection = csrf();
 
@@ -21,16 +22,16 @@ frontendRouter.use((req, res, next) => {
 frontendRouter.get('/', (req, res) => {
 
   // res.status(200).sendFile(path.join(__dirname, '../public', '/build','index.html'));
-  const chunk1 = reactScripts.path + reactScripts.chunk1;
-  const chunk2 = reactScripts.path + reactScripts.chunk2;
-  const css = reactScripts.cssPath + reactScripts.css;
+  const chunk1 = reactChunks.path + reactChunks.chunk1;
+  const chunk2 = reactChunks.path + reactChunks.chunk2;
+  const css = reactChunks.cssPath + reactChunks.css;
   
   // res.status(200).send('front end');
   // res.render('/', {});
   res.render('/', 
   { script1: chunk1,
     script2: chunk2, 
-    unpackingScript: reactScripts.unpackingScript,
+    unpackingScript: reactChunks.unpackingScript,
     css: css,
     csrfToken: req.csrfToken() 
   });
