@@ -3,6 +3,8 @@ const expressHbs = require('express-handlebars');
 const cors = require('cors');
 const db = require('./config/database');
 const bodyParser= require('body-parser');
+const cookieParser = require('cookie-parser');
+const csrf = require('csurf');
 const session = require('express-session');
 const Passport = require('passport');
 const path = require('path');
@@ -21,6 +23,9 @@ require('./config/passport');
 
 const PORT = process.env.PORT || 5000;
 
+
+const csurfMiddleware = csrf({ cookie: true });
+
 app.use(cors());
 app.use(bodyParser({ extended: true }));
 
@@ -31,12 +36,13 @@ db.authenticate()
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 // view engine setup
 app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs', layoutsDir: __dirname + 'views/layouts' }));
 app.set('views', path.join(__dirname, 'views', 'layouts'));
 app.set('view engine', '.hbs');
 
+app.use(cookieParser());
+app.use(csurfMiddleware)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: 'sheM0zz3l3pf3', resave: false, saveUninitialized: false }));
