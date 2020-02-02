@@ -36,7 +36,7 @@ db.authenticate()
   .catch(err => console.log('Error: ' + err));
 
 // view engine setup
-app.engine('.hbs', expressHbs({ defaultLayout: null, extname: '.hbs', layoutsDir: __dirname + 'views/layouts' }));
+app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs', layoutsDir: __dirname + 'views/layouts' }));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', '.hbs');
 
