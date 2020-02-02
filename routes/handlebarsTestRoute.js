@@ -6,4 +6,4 @@ handlebarsRouter.get('/', (req, res) => {
   res.render('test/test');
 });
 
-export default handlebarsRouter;
+module.exports = handlebarsRouter;
