@@ -35,12 +35,12 @@ db.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err));
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 // view engine setup
 app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs', layoutsDir: __dirname + 'views/layouts' }));
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', '.hbs');
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cookieParser());
 app.use(csurfMiddleware)
