@@ -56,8 +56,8 @@ app.use('/db', testRoute);
 // mount products router
 app.use('/products', productRoutes);
 
-app.use('/', frontendRoutes);
-// app.use('/', testhandlebars);
+// app.use('/', frontendRoutes);
+app.use('/', testhandlebars);
 
 
 app.listen(PORT);
