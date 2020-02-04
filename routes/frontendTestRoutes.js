@@ -26,6 +26,7 @@ frontendRouter.get('/', (req, res) => {
   const chunk2 = reactChunks.path + reactChunks.chunk2;
   const css = reactChunks.cssPath + reactChunks.css;
   console.log(css);
+  console.log(reactChunks.unpackingScript);
   
   // res.status(200).send('front end');
   // res.render('/', {});
