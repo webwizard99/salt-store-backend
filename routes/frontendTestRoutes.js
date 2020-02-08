@@ -28,8 +28,7 @@ frontendRouter.get('/', (req, res) => {
   
   res.render('index', 
   { script1: chunk1,
-    script2: chunk2, 
-    unpackingScript: reactChunks.unpackingScript,
+    script2: chunk2,
     css: css
   });
 

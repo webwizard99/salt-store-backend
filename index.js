@@ -15,7 +15,7 @@ const testRoute = require('./routes/testRoute');
 const productRoutes = require('./routes/productRoutes');
 // import frontend router
 const frontendRoutes = require('./routes/frontendTestRoutes');
-const testhandlebars = require('./routes/handlebarsTestRoute');
+const userRoutes = require('./routes/userRoutes');
 
 // initialize express app
 const app = express();
@@ -56,8 +56,8 @@ app.use('/db', testRoute);
 // mount products router
 app.use('/products', productRoutes);
 
-app.use('/', frontendRoutes);
-// app.use('/', testhandlebars);
+app.use('/frontend', frontendRoutes);
+app.use('/user', userRoutes);
 
 
 app.listen(PORT);
