@@ -1,7 +1,7 @@
 module.exports = {
   path: 'build/static/js/',
   cssPath: 'build/static/css/',
-  chunk1: '2.1634e02c.chunk.js',
-  chunk2: 'main.d11f7180.chunk.js',
+  chunk1: '2.14337450.chunk.js',
+  chunk2: 'main.b6acfe14.chunk.js',
   css: 'main.bc9068f4.chunk.css'
 }
