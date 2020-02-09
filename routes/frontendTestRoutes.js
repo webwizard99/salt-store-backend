@@ -19,7 +19,7 @@ frontendRouter.use((req, res, next) => {
   next();
 });
 
-frontendRouter.get('/', (req, res) => {
+frontendRouter.get('/*', (req, res) => {
 
   // res.status(200).sendFile(path.join(__dirname, '../', '/public/build','index.html'));
   const chunk1 = reactChunks.path + reactChunks.chunk1;
