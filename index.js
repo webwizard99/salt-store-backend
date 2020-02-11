@@ -8,8 +8,6 @@ const session = require('express-session');
 const Passport = require('passport');
 const path = require('path');
 
-// import route to get test database (delete)
-const testRoute = require('./routes/testRoute');
 // import products router
 const productRoutes = require('./routes/productRoutes');
 // import frontend router
@@ -46,13 +44,10 @@ app.use(session({ secret: 'sheM0zz3l3pf3', resave: false, saveUninitialized: fal
 app.use(Passport.initialize());
 app.use(Passport.session());
 
-
-app.use('/db', testRoute);
-
 // mount products router
 app.use('/products', productRoutes);
 
-app.use('/frontend', frontendRoutes);
+app.use('/', frontendRoutes);
 app.use('/user', userRoutes);
 
 
