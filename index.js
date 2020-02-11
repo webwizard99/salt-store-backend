@@ -4,7 +4,6 @@ const cors = require('cors');
 const db = require('./config/database');
 const bodyParser= require('body-parser');
 const cookieParser = require('cookie-parser');
-const csrf = require('csurf');
 const session = require('express-session');
 const Passport = require('passport');
 const path = require('path');
@@ -23,9 +22,6 @@ const app = express();
 require('./config/passport');
 
 const PORT = process.env.PORT || 5000;
-
-
-const csurfMiddleware = csrf({ cookie: true });
 
 app.use(cors());
 app.use(bodyParser({ extended: true }));

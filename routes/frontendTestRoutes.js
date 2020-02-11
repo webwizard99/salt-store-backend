@@ -1,5 +1,4 @@
 const express = require('express');
-const csrf = require('csurf');
 const path = require('path');
 const reactChunks = require('../config/reactchunks');
 
