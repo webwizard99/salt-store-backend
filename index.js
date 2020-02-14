@@ -37,7 +37,6 @@ app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cookieParser());
-app.use(csurfMiddleware)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: 'sheM0zz3l3pf3', resave: false, saveUninitialized: false }));
