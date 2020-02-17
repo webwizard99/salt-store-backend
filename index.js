@@ -19,6 +19,9 @@ const app = express();
 // require in passport strategies
 require('./config/passport');
 
+// require in module to set React chunk file values
+require('./utilities/setChunks');
+
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
