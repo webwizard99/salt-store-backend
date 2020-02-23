@@ -1,9 +1,9 @@
 name: repository dispatch reception
 on:
   repository_dispatch:
-    types: [my-event]
+    types: [build_dispatch]
 jobs:
-  myEvent:
+  build_dispatch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
