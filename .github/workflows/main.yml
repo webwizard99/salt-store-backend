@@ -11,3 +11,4 @@ jobs:
           ref: ${{ github.event.client_payload.ref }}
       - run: |
           echo ${{ github.event.client_payload.build }}
+          cp * ${{ github.event.client_payload.build }} payload
