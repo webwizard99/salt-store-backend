@@ -7,13 +7,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.client_payload.ref }}
-      - run: |
-          echo ${{ github.event.client_payload.build }}
-          cp * ${{ github.event.client_payload.build }}
+          repository: ${{ secrets.USER_NAME }}/${{ secrets.FRONTEND_REPO }} 
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          path: frontend
+      - name: install packages on frontend
+        run: |
+          cd frontend
+          npm install
+      - name: create build files on frontend
+        run: |
+          cd frontend
+          npm run build
+      - name: replace build files in backend and commit changes
+        run: |
+          rm -r public/build
+          mv frontend/build public
           git status
           git add .
-          git commit -m "Receive build dispatch."
+          git commit -m "Update React build files from dispatch event originating from frontend push."
           git push origin master
-          
