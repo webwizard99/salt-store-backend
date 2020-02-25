@@ -15,3 +15,4 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "salt-store-backend" #Must be unique in Heroku
           heroku_email: ${{ secrets.USER_EMAIL }}
+          branch: "master"
