@@ -22,7 +22,7 @@ Passport.use('local-signup', new LocalStrategy({
     } else {
       const userPassword = generateHash(password);
 
-      const newUser = await User.Create({
+      const newUser = await User.create({
         email: email,
         password: userPassword
       });
