@@ -27,10 +27,7 @@ user = {
   id: serial,
   password: encrypted,
   name: string,
-  email: string,
-  phone: string,
-  addressess: [ address_id ...],
-  payment_methods: [ payment_id ... ]
+  email: string
 }
 
 address = {
@@ -40,6 +37,7 @@ address = {
   city: string,
   state: string,
   country: string,
+  phone: string,
   validated: boolean
 }
 
