@@ -7,7 +7,7 @@ Passport.use('local-signup', new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
   passReqToCallback: true
-}, async(req, name, email, password, done) => {
+}, async(req, email, password, done) => {
   const generateHash = (pword) => {
     return bCrypt.hashSync(pword, bCrypt.genSaltSync(8), null);
   }
@@ -21,6 +21,8 @@ Passport.use('local-signup', new LocalStrategy({
       return done(null, false, { message: 'Email is already in use.' });
     } else {
       const userPassword = generateHash(password);
+
+      const name = req.body.name;
 
       const newUser = await User.create({
         name: name,
